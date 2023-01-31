@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: test
         run: |
-          echo issue : ${{ fromJSON(github.event.issue.labels) }}
-          echo PR : ${{ fromJSON(github.event.pull_request.labels) }}
+          echo issue : ${{ contains(github.event.issue.labels.*.name, 'bug') }}
+          echo PR : ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
           echo For the test
