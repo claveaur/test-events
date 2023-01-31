@@ -15,4 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: echo ${{ github.event.labels }}
+        run: |
+          echo ${{ github.event.labels }}
