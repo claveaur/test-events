@@ -11,8 +11,8 @@ on:
 
 jobs:
   test:
-  if: ${{ github.event.labels }}
-  runs-on: ubuntu-latest
-  steps:
-    - name: test
-      run: echo ${{ github.event.labels }}
+    if: ${{ github.event.labels }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo ${{ github.event.labels }}
