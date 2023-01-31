@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
+        env:
+          WITH_BUG: ${{ contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.pull_request.labels.*.name, 'bug') }}
         run: |
           echo issue : ${{ contains(github.event.issue.labels.*.name, 'bug') }}
           echo PR : ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
-          echo Result : ${{ contains([github.event.issue.labels.*.name,github.event.pull_request.labels.*.name], 'bug') }}
+          echo Result : ${WITH_BUG}
