@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  test:
+  if: ${{ github.event.labels }}
+  steps:
+    - name: test
+      run: echo ${{ github.event.labels }}
