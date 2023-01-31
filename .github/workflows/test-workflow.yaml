@@ -11,10 +11,10 @@ on:
 
 jobs:
   test:
-    if: ${{ github.event.issue.labels || github.event.pull_request.labels }}
     runs-on: ubuntu-latest
     steps:
       - name: test
         run: |
           echo issue : ${{ contains(github.event.issue.labels.*.name, 'bug') }}
           echo PR : ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
+          echo Result : ${{ contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.pull_request.labels.*.name, 'bug') }}
